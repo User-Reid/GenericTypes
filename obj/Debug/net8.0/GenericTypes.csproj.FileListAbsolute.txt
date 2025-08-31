@@ -1,0 +1,15 @@
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\bin\Debug\net8.0\GenericTypes.exe
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\bin\Debug\net8.0\GenericTypes.deps.json
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\bin\Debug\net8.0\GenericTypes.runtimeconfig.json
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\bin\Debug\net8.0\GenericTypes.dll
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\bin\Debug\net8.0\GenericTypes.pdb
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.AssemblyInfoInputs.cache
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.AssemblyInfo.cs
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.csproj.CoreCompileInputs.cache
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.sourcelink.json
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.dll
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\refint\GenericTypes.dll
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.pdb
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\GenericTypes.genruntimeconfig.cache
+C:\Users\aerma\Downloads\UT-Bootcamp\Udemy\C#\GenericTypes\obj\Debug\net8.0\ref\GenericTypes.dll
