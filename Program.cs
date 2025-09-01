@@ -1,4 +1,6 @@
-﻿// var numbers = new SimpleList<int>();
+﻿using AlternateLesson.GenericMethods;
+
+// var numbers = new SimpleList<int>();
 // numbers.Add(10);
 // numbers.Add(20);
 // numbers.Add(30);
@@ -67,41 +69,41 @@
 //   }
 // }
 
-var numbers = new List<int> { 5, 3, 2, 8, 16, 7 };
-Tuple<int, int> minAndMax = GetMinAndMax(numbers);
+// var numbers = new List<int> { 5, 3, 2, 8, 16, 7 };
+// Tuple<int, int> minAndMax = GetMinAndMax(numbers);
 
-var twoStrings = new Tuple<string, string>("aaa", "bbb");
-var differentTypes = new Tuple<string, int>("aaa", 2);
-var threeItems = new Tuple<string, int, bool>("aaa", 2, false);
-System.Console.WriteLine($"Smallest number is {minAndMax.Item1}");
-System.Console.WriteLine($"Largest number is {minAndMax.Item2}");
+// var twoStrings = new Tuple<string, string>("aaa", "bbb");
+// var differentTypes = new Tuple<string, int>("aaa", 2);
+// var threeItems = new Tuple<string, int, bool>("aaa", 2, false);
+// System.Console.WriteLine($"Smallest number is {minAndMax.Item1}");
+// System.Console.WriteLine($"Largest number is {minAndMax.Item2}");
 
-Console.ReadKey();
+// Console.ReadKey();
 
-Tuple<int,int> GetMinAndMax(List<int> numbers)
-{
-  if (!numbers.Any())
-  {
-    throw new InvalidOperationException($"Yo shit is empty buddy.");
-  }
+// Tuple<int,int> GetMinAndMax(List<int> numbers)
+// {
+//   if (!numbers.Any())
+//   {
+//     throw new InvalidOperationException($"Yo shit is empty buddy.");
+//   }
 
-  int min = numbers.First();
-  int max = numbers.First();
+//   int min = numbers.First();
+//   int max = numbers.First();
 
-  foreach (int number in numbers)
-  {
-    if (number > max)
-    {
-      max = number;
-    }
-    if (number < min)
-    {
-      min = number;
-    }
-  }
+//   foreach (int number in numbers)
+//   {
+//     if (number > max)
+//     {
+//       max = number;
+//     }
+//     if (number < min)
+//     {
+//       min = number;
+//     }
+//   }
 
-  return new Tuple<int,int>(min, max);
-}
+//   return new Tuple<int,int>(min, max);
+// }
 
 // public class SimpleTuple<T1, T2>
 // {
@@ -126,3 +128,8 @@ Tuple<int,int> GetMinAndMax(List<int> numbers)
 //     Item3 = item3;
 //   }
 // }
+
+var decimals = new List<decimal> { 1.1m, 0.5m, 22.5m, 12m };
+var ints = decimals.ConvertTo();
+
+Console.ReadKey();
