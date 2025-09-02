@@ -8,5 +8,10 @@ Console.ReadKey();
 
 public static class Calculator
 {
-  public static T Square<T>(T input) where T : INumber<T> => input* input;
+  public static T Square<T>(T input) where T : INumber<T> => input * input;
+}
+
+void SomeMethod<TPet, TOwner>(TPet pet, TOwner owner) where TPet : Pet, IComparable<TPet> where TOwner : new()
+{
+  
 }
