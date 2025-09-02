@@ -139,33 +139,47 @@
 //   public static Tuple<T2, T1> SwapTupleItems<T1, T2>(Tuple<T1, T2> elements) => new Tuple<T2, T1>(elements.Item2, elements.Item1);
 // }
 
-var decimals = new List<decimal> { 1.1m, 0.5m, 22.5m, 12m };
-var ints = decimals.ConvertTo<decimal, int>();
+// var decimals = new List<decimal> { 1.1m, 0.5m, 22.5m, 12m };
+// var ints = decimals.ConvertTo<decimal, int>();
 
-var floats = new List<float> { 1.4f, -100.01f };
-var longs = floats.ConvertTo<float, long>();
+// var floats = new List<float> { 1.4f, -100.01f };
+// var longs = floats.ConvertTo<float, long>();
 
-var dates = new List<DateTime> { new DateTime(2025, 5, 3) };
-var ints2 = dates.ConvertTo<DateTime, int>();
+// var dates = new List<DateTime> { new DateTime(2025, 5, 3) };
+// var ints2 = dates.ConvertTo<DateTime, int>();
 
-Console.ReadKey();
+// Console.ReadKey();
 
-public static class ListExtensions
+// public static class ListExtensions
+// {
+//   public static void AddToFront<T>(this List<T> list, T item)
+//   {
+//     list.Insert(0, item);
+//   }
+
+//   public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> decimals)
+//   {
+//     var result = new List<TTarget>();
+
+//     foreach (var number in decimals)
+//     {
+//       TTarget itemAfterCasting = (TTarget)Convert.ChangeType(number, typeof(TTarget));
+//       result.Add(itemAfterCasting);
+//     }
+//     return result;
+//   }
+// }
+
+IEnumerable<T> CreateCollectionOfRandomLength<T>(int maxLength) where T : new()
 {
-  public static void AddToFront<T>(this List<T> list, T item)
+  var length = new Random().Next(maxLength + 1);
+
+  var result = new List<T>();
+
+  for (int i = 0; i < length; i++)
   {
-    list.Insert(0, item);
+    result.Add(new T());
   }
 
-  public static List<TTarget> ConvertTo<TSource, TTarget>(this List<TSource> decimals)
-  {
-    var result = new List<TTarget>();
-
-    foreach (var number in decimals)
-    {
-      TTarget itemAfterCasting = (TTarget)Convert.ChangeType(number, typeof(TTarget));
-      result.Add(itemAfterCasting);
-    }
-    return result;
-  }
+  return result;
 }
