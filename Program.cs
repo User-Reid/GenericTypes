@@ -7,40 +7,39 @@
   new Employee("Gustavo Sanchez", "Monkey Shit Removal", 20000),
 };
 
-CalculateAverageSalaryPerDepartment(employees);
+var taco = CalculateAverageSalaryPerDepartment(employees);
 
 Console.ReadKey();
 
 Dictionary<string, decimal> CalculateAverageSalaryPerDepartment(IEnumerable<Employee> employees)
 {
-  var employeesSalaries = new Dictionary<string, decimal>();
+  var employeesPerDepartments = new Dictionary<string, List<Employee>>();
 
-  foreach (Employee employee in employees)
+  foreach (var employee in employees)
   {
-    decimal employeeSalary = 0;
-
-    if (employee.Department == "Spoon Inspection")
+    if (!employeesPerDepartments.ContainsKey(employee.Department))
     {
-      employeeSalary += employee.MonthlySalary;
+      employeesPerDepartments[employee.Department] = new List<Employee>();
     }
-    else if (employee.Department == "Xray")
-    {
-      xRayTotal += employee.MonthlySalary;
-    }
-    else if (employee.Department == "Monkey Shit Removal")
-    {
-      monkeyShitRemovalTotal += employee.MonthlySalary;
-    }
+    employeesPerDepartments[employee.Department].Add(employee);
   }
-  decimal spoonAverage = spoonTotal / 2;
-  decimal xRayAverage = xRayTotal / 2;
-  decimal monkeyShitRemovalAverage = monkeyShitRemovalTotal / 2;
 
+  var result = new Dictionary<string, decimal>();
 
-  return new Dictionary<string, decimal>()
+  foreach (var employeesPerDepartment in employeesPerDepartments)
   {
-    ["Spoon Inspection"], spoonTotal / 2,
+    decimal sumOfSalaries = 0;
+
+    foreach (var employee in employeesPerDepartment.Value)
+    {
+      sumOfSalaries += employee.MonthlySalary;
+    }
+
+    var average = sumOfSalaries / employeesPerDepartment.Value.Count();
+
+    result[employeesPerDepartment.Key] = average;
   }
+  return result;
 }
 
 public class Employee
