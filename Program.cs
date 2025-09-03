@@ -1,27 +1,29 @@
-﻿// var numbers = new[] { 1, 4, 7, 19, 2 };
-// // Func<int, bool> predicate1 = IsLargerThan10;
-// System.Console.WriteLine($"Are there numbers greater than 10? {IsAny(numbers, n => n > 10)}");
-// // Func<int, bool> predicate2 = IsEven;
-// System.Console.WriteLine($"Are there any even numbers? {IsAny(numbers, n => n % 2 == 0)}");
-// Console.ReadKey();
+﻿
+ProcessString processString1 = TrimTo5Letters;
+ProcessString processString2 = ToUpper;
+System.Console.WriteLine(processString1("FUUUUUCKKKCKCKCKC"));
+System.Console.WriteLine(processString2("HOWWDYyyyyyyyyyyyyy"));
 
-// Func<int, DateTime, string, decimal> someFunc;
-// Action<string, string, bool> someAction;
+Print print1 = text => System.Console.WriteLine(text.ToUpper());
+Print print2 = text => System.Console.WriteLine(text.ToLower());
+Print multicast = print1 + print2;
+Print print4 = text => System.Console.WriteLine(text.Substring(0, 3));
+multicast += print4;
+multicast("Crocodile");
 
-// bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
-// {
-//   foreach (int number in numbers)
-//   {
-//     if (predicate(number))
-//     {
-//       return true;
-//     }
-//   }
-//   return false;
-// }
 
-public class Exercise
-    {
-  public Func<string, int> GetLength = n => n.Length;
-  public Func<int> GetRandomNumberBetween1And10 = () => new Random().Next(1, 11);
-    }
+Console.ReadKey();
+
+
+string TrimTo5Letters(string input)
+{
+  return input.Substring(0, 5);
+}
+
+string ToUpper(string input)
+{
+  return input.ToUpper();
+}
+
+delegate string ProcessString(string input);
+delegate void Print(string input);
