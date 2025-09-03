@@ -1,29 +1,27 @@
-﻿
-ProcessString processString1 = TrimTo5Letters;
-ProcessString processString2 = ToUpper;
-System.Console.WriteLine(processString1("FUUUUUCKKKCKCKCKC"));
-System.Console.WriteLine(processString2("HOWWDYyyyyyyyyyyyyy"));
+﻿var countryToCurrencyMapping = new Dictionary<string, string>()
+{
+  ["USD"] = "USA",
+  ["India"] = "INR",
+  ["Spain"] = "EUR",
+};
 
-Print print1 = text => System.Console.WriteLine(text.ToUpper());
-Print print2 = text => System.Console.WriteLine(text.ToLower());
-Print multicast = print1 + print2;
-Print print4 = text => System.Console.WriteLine(text.Substring(0, 3));
-multicast += print4;
-multicast("Crocodile");
+// countryToCurrencyMapping.Add("USA", "USD");
+// countryToCurrencyMapping.Add("India", "INR");
+// countryToCurrencyMapping.Add("Spain", "EUR");
+// countryToCurrencyMapping.Add("Italy", "EUR");
 
+countryToCurrencyMapping["Taco"] = "Bell";
+System.Console.WriteLine(countryToCurrencyMapping["Taco"]);
+countryToCurrencyMapping["Taco"] = "Cabana";
+System.Console.WriteLine(countryToCurrencyMapping["Taco"]);
+
+
+System.Console.WriteLine($"Currency in Spain is {countryToCurrencyMapping["Spain"]}");
+// System.Console.WriteLine($"Currency in Spain is {countryToCurrencyMapping["Italy"]}");
+
+foreach (var value in countryToCurrencyMapping)
+{
+  System.Console.WriteLine(value);
+}
 
 Console.ReadKey();
-
-
-string TrimTo5Letters(string input)
-{
-  return input.Substring(0, 5);
-}
-
-string ToUpper(string input)
-{
-  return input.ToUpper();
-}
-
-delegate string ProcessString(string input);
-delegate void Print(string input);
