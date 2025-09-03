@@ -1,17 +1,31 @@
-﻿using System.Numerics;
-
-System.Console.WriteLine($"Square of 2 is: {Calculator.Square(2)}");
-System.Console.WriteLine($"Square of 4m is: {Calculator.Square(4m)}");
-System.Console.WriteLine($"Square of 6d is: {Calculator.Square(6d)}");
-
+﻿var numbers = new[] { 1, 4, 7, 19, 2 };
+// Func<int, bool> predicate1 = IsLargerThan10;
+System.Console.WriteLine($"Are there numbers greater than 10? {IsAny(numbers, IsLargerThan10)}");
+// Func<int, bool> predicate2 = IsEven;
+System.Console.WriteLine($"Are there any even numbers? {IsAny(numbers, IsEven)}");
 Console.ReadKey();
 
-public static class Calculator
+Func<int, DateTime, string, decimal> someFunc;
+Action<string, string, bool> someAction;
+
+bool IsLargerThan10(int number)
 {
-  public static T Square<T>(T input) where T : INumber<T> => input * input;
+  return number > 10;
 }
 
-void SomeMethod<TPet, TOwner>(TPet pet, TOwner owner) where TPet : Pet, IComparable<TPet> where TOwner : new()
+bool IsEven(int number)
 {
-  
+  return number % 2 == 0;
+}
+
+bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
+{
+  foreach (int number in numbers)
+  {
+    if (predicate(number))
+    {
+      return true;
+    }
+  }
+  return false;
 }
