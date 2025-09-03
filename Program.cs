@@ -18,11 +18,11 @@ bool IsEven(int number)
   return number % 2 == 0;
 }
 
-bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
+bool IsAny(IEnumerable<int> numbers, Func<int, bool> taco)
 {
   foreach (int number in numbers)
   {
-    if (predicate(number))
+    if (taco(number))
     {
       return true;
     }
