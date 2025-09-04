@@ -1,101 +1,79 @@
-﻿// var employees = new List<Employee> {
-//   new Employee("Jake Smith", "Spoon Inspection", 25000),
-//   new Employee("Anna Blake", "Spoon Inspection", 29000),
-//   new Employee("Barbara Oak", "Xray", 21500),
-//   new Employee("Damien Parker", "Xray", 22000),
-//   new Employee("Nisha Patel", "Monkey Shit Removal", 21000),
-//   new Employee("Gustavo Sanchez", "Monkey Shit Removal", 20000),
-// };
+﻿var numbers = new List<int> { 10, 12, -100, 55, 17, 22 };
+string userInput;
 
-// var taco = CalculateAverageSalaryPerDepartment(employees);
+System.Console.WriteLine(@"Select filter:
+Even
+Odd");
 
-// Console.ReadKey();
+userInput = Console.ReadLine();
 
-// Dictionary<string, decimal> CalculateAverageSalaryPerDepartment(IEnumerable<Employee> employees)
-// {
-//   var employeesPerDepartments = new Dictionary<string, List<Employee>>();
+List<int> result = new NumbersFilter().FilterBy(userInput, numbers);
 
-//   foreach (var employee in employees)
-//   {
-//     if (!employeesPerDepartments.ContainsKey(employee.Department))
-//     {
-//       employeesPerDepartments[employee.Department] = new List<Employee>();
-//     }
-//     employeesPerDepartments[employee.Department].Add(employee);
-//   }
-
-//   var result = new Dictionary<string, decimal>();
-
-//   foreach (var employeesPerDepartment in employeesPerDepartments)
-//   {
-//     decimal sumOfSalaries = 0;
-
-//     foreach (var employee in employeesPerDepartment.Value)
-//     {
-//       sumOfSalaries += employee.MonthlySalary;
-//     }
-
-//     var average = sumOfSalaries / employeesPerDepartment.Value.Count();
-
-//     result[employeesPerDepartment.Key] = average;
-//   }
-//   return result;
-// }
-
-// public class Employee
-// {
-//   public string Name { get; }
-//   public string Department { get; }
-//   public decimal MonthlySalary { get; }
-//   public Employee(string name, string department, decimal monthlySalary)
-//   {
-//     Name = name;
-//     Department = department;
-//     MonthlySalary = monthlySalary;
-//   }
-// }
-
-var taco = Exercise.FindMaxWeights(new List<Pet>()
-{
-  new Pet(PetType.Dog, 10),
-  new Pet(PetType.Cat, 5),
-  new Pet(PetType.Fish, 0.9),
-  new Pet(PetType.Dog, 45),
-  new Pet(PetType.Cat, 2),
-  new Pet(PetType.Fish, 0.02)
-});
+Print(result);
 
 Console.ReadKey();
 
-public static class Exercise
-    {
-  public static Dictionary<PetType, double> FindMaxWeights(List<Pet> pets)
+void Print(IEnumerable<int> numbers)
+{
+  System.Console.WriteLine(string.Join(", ", numbers));
+}
+
+public class NumbersFilter
+{
+  public List<int> FilterBy(string filteringType, List<int> numbers)
   {
-    var maxWeightPets = new Dictionary<PetType, double>();
-    
-    foreach (var pet in pets)
+
+    switch (filteringType)
     {
-      if (!maxWeightPets.ContainsKey(pet.PetType) || pet.Weight > maxWeightPets[pet.PetType])
+      case "Even": return SelectEven(numbers);
+      case "Odd": return SelectOdd(numbers);
+      case "Positive": return SelectPositive(numbers);
+      default:
+        {
+          throw new Exception($"Yo shit chalked cuh");
+        }
+    }
+  }
+  
+private List<int> SelectEven(List<int> numbers)
+  {
+    var result = new List<int>();
+    foreach (int number in numbers)
+    {
+      if (number % 2 == 0)
       {
-        maxWeightPets[pet.PetType] = pet.Weight;
+        result.Add(number);
       }
     }
-    return maxWeightPets;
+    return result;
   }
-}
-    
-    public class Pet
+
+private List<int> SelectOdd(List<int> numbers)
+{
+  var result = new List<int>();
+  foreach (int number in numbers)
+  {
+    if (number % 2 != 0)
     {
-        public PetType PetType { get; }
-        public double Weight { get; }
-    
-        public Pet(PetType petType, double weight)
-        {
-            PetType = petType;
-            Weight = weight;    
-        }
-        
-        public override string ToString() => $"{PetType}, {Weight} kilos";
+      result.Add(number);
     }
-    
-    public enum PetType { Dog, Cat, Fish }
+  }
+  return result;
+}
+
+private List<int> SelectPositive(List<int> numbers)
+{
+  var result = new List<int>();
+  foreach (int number in numbers)
+  {
+    if (number > 0)
+    {
+      result.Add(number);
+    }
+  }
+  return result;
+}
+
+}
+
+
