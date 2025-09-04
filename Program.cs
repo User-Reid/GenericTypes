@@ -75,14 +75,7 @@ public static class Exercise
     
     foreach (var pet in pets)
     {
-      // create a key if it doesnt exist
-      if (!maxWeightPets.ContainsKey(pet.PetType))
-      {
-        maxWeightPets.Add(pet.PetType, 0);
-      }
-
-
-      if (pet.Weight > maxWeightPets[pet.PetType])
+      if (!maxWeightPets.ContainsKey(pet.PetType) || pet.Weight > maxWeightPets[pet.PetType])
       {
         maxWeightPets[pet.PetType] = pet.Weight;
       }
