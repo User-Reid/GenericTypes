@@ -14,3 +14,14 @@ public interface IDataDownloader
 {
   string DownloadData(string resouceId);
 }
+
+public class SlowDataDownloader : IDataDownloader
+{
+  public string DownloadData(string resouceId)
+  {
+    // let's imagine this method downloads real data,
+    // and it does it slowly
+    Thread.Sleep(1000);
+    return $"Some data for {resouceId}";
+  }
+}
